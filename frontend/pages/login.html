@@ -13,33 +13,182 @@
       flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
       background: linear-gradient(160deg, var(--clr-brand-700) 0%, var(--clr-brand-600) 40%, var(--clr-brand-500) 100%);
       color: #fff; padding: var(--space-2xl); position: relative; overflow: hidden;
+      animation: slideInLeft 0.7s var(--ease-spring) forwards;
     }
-    .auth-panel .deco-orb { filter: blur(80px); opacity: 0.25; }
-    .auth-panel-content { position: relative; z-index: 1; text-align: center; max-width: 380px; }
-    .auth-panel-logo { font-family: var(--font-head); font-size: 3rem; font-weight: 900; margin-bottom: var(--space-md); letter-spacing: -0.03em; }
-    .auth-panel-tagline { font-size: 1.1rem; opacity: 0.85; line-height: 1.7; margin-bottom: var(--space-xl); }
-    .auth-panel-features { text-align: left; display: flex; flex-direction: column; gap: var(--space-md); }
-    .auth-panel-feature { display: flex; align-items: center; gap: var(--space-sm); font-size: 0.9rem; opacity: 0.8; }
-    .auth-panel-feature span { font-size: 1.2rem; }
+    .auth-panel .deco-orb { 
+      filter: blur(80px); 
+      opacity: 0.25; 
+      animation: float 8s ease-in-out infinite;
+    }
+    .auth-panel-content { 
+      position: relative; 
+      z-index: 1; 
+      text-align: center; 
+      max-width: 380px;
+    }
+    .auth-panel-logo { 
+      font-family: var(--font-head); 
+      font-size: 3rem; 
+      font-weight: 900; 
+      margin-bottom: var(--space-md); 
+      letter-spacing: -0.03em;
+      animation: slideInDown 0.6s var(--ease-spring) forwards;
+      opacity: 0;
+      animation-delay: 0.1s;
+    }
+    .auth-panel-tagline { 
+      font-size: 1.1rem; 
+      opacity: 0.85; 
+      line-height: 1.7; 
+      margin-bottom: var(--space-xl);
+      animation: slideInDown 0.6s var(--ease-spring) forwards;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+    .auth-panel-features { 
+      text-align: left; 
+      display: flex; 
+      flex-direction: column; 
+      gap: var(--space-md);
+      animation: slideInDown 0.6s var(--ease-spring) forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+    .auth-panel-feature { 
+      display: flex; 
+      align-items: center; 
+      gap: var(--space-sm); 
+      font-size: 0.9rem; 
+      opacity: 0.8;
+      transition: transform 0.3s var(--ease-spring), opacity 0.3s var(--ease);
+    }
+    .auth-panel-feature:hover {
+      transform: translateX(8px);
+      opacity: 1;
+    }
+    .auth-panel-feature span { 
+      font-size: 1.2rem;
+      display: inline-block;
+      transition: transform 0.3s var(--ease-spring);
+    }
+    .auth-panel-feature:hover span {
+      transform: scale(1.2) rotate(5deg);
+    }
     .auth-form-side {
-      flex: 1; display: flex; align-items: center; justify-content: center;
-      padding: var(--space-2xl); position: relative;
+      flex: 1; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      padding: var(--space-2xl); 
+      position: relative;
+      background: var(--clr-bg);
+      animation: slideInRight 0.7s var(--ease-spring) forwards;
     }
-    .auth-card { width: 100%; max-width: 420px; }
-    .auth-logo { text-align: center; margin-bottom: var(--space-xl); }
-    .auth-logo-text { font-family: var(--font-head); font-size: 2rem; font-weight: 800; }
-    .auth-title { font-size: 1.5rem; font-weight: 800; text-align: center; margin-bottom: var(--space-xs); letter-spacing: -0.02em; }
-    .auth-subtitle { text-align: center; color: var(--clr-text-muted); font-size: 0.88rem; margin-bottom: var(--space-xl); }
+    .auth-card { 
+      width: 100%; 
+      max-width: 420px;
+      animation: bounceIn 0.6s var(--ease-spring) forwards;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+    .auth-logo { 
+      text-align: center; 
+      margin-bottom: var(--space-xl);
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+    .auth-logo-text { 
+      font-family: var(--font-head); 
+      font-size: 2rem; 
+      font-weight: 800;
+      transition: transform 0.3s var(--ease-spring);
+    }
+    .auth-logo-text:hover {
+      transform: scale(1.05);
+    }
+    .auth-title { 
+      font-size: 1.5rem; 
+      font-weight: 800; 
+      text-align: center; 
+      margin-bottom: var(--space-xs); 
+      letter-spacing: -0.02em;
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.35s;
+    }
+    .auth-subtitle { 
+      text-align: center; 
+      color: var(--clr-text-muted); 
+      font-size: 0.88rem; 
+      margin-bottom: var(--space-xl);
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.4s;
+    }
     .role-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(123,138,98,0.1); border: 1px solid rgba(123,138,98,0.25);
-      color: var(--clr-brand-600); font-size: 0.72rem; font-weight: 700;
-      padding: 0.35rem 1rem; border-radius: var(--radius-full);
-      text-transform: uppercase; letter-spacing: 0.06em;
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px;
+      background: rgba(123,138,98,0.1); 
+      border: 1px solid rgba(123,138,98,0.25);
+      color: var(--clr-brand-600); 
+      font-size: 0.72rem; 
+      font-weight: 700;
+      padding: 0.35rem 1rem; 
+      border-radius: var(--radius-full);
+      text-transform: uppercase; 
+      letter-spacing: 0.06em;
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.45s;
+      transition: all 0.3s var(--ease);
+    }
+    .role-badge:hover {
+      background: rgba(123,138,98,0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(123,138,98,0.2);
+    }
+    #login-form .form-group {
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+    }
+    #login-form .form-group:nth-child(1) { animation-delay: 0.5s; }
+    #login-form .form-group:nth-child(2) { animation-delay: 0.55s; }
+    #login-btn {
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.65s;
+    }
+    .spinner {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spinLoader 0.8s linear infinite;
+    }
+    .divider {
+      height: 1px;
+      background: var(--clr-border);
+      margin: var(--space-lg) 0;
+      animation: slideInUp 0.5s var(--ease) forwards;
+      opacity: 0;
+      animation-delay: 0.6s;
     }
     @media (max-width: 768px) {
       .auth-panel { display: none; }
-      .auth-form-side { padding: var(--space-xl); }
+      .auth-form-side { padding: var(--space-xl); animation: none; }
+      .auth-card { animation: none; opacity: 1; }
+      .auth-panel-logo,
+      .auth-panel-tagline,
+      .auth-panel-features,
+      .auth-logo,
+      .auth-title,
+      .auth-subtitle,
+      .role-badge,
+      #login-form .form-group,
+      #login-btn,
+      .divider { animation: none; opacity: 1; }
     }
   </style>
 </head>
@@ -80,14 +229,19 @@
           <form id="login-form" class="flex flex-col gap-md">
             <div class="form-group">
               <label class="form-label" for="username">Username</label>
-              <input id="username" type="text" class="form-input" placeholder="Enter your username" autocomplete="username" required />
+              <input id="username" type="text" class="form-input focus-ring" placeholder="Enter your username" autocomplete="username" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="password">Password</label>
-              <input id="password" type="password" class="form-input" placeholder="Enter your password" autocomplete="current-password" required />
+              <div style="position: relative;">
+                <input id="password" type="password" class="form-input focus-ring" placeholder="Enter your password" autocomplete="current-password" required />
+                <button type="button" id="toggle-password" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--clr-text-muted); font-size: 1.2rem; padding: 0; transition: color 0.2s var(--ease);" title="Show/hide password">👁️</button>
+              </div>
             </div>
-            <p id="login-error" class="form-error hidden"></p>
-            <button id="login-btn" type="submit" class="btn btn-primary btn-lg w-full mt-sm">Sign In as Resident</button>
+            <p id="login-error" class="form-error hidden" style="animation: slideInUp 0.3s var(--ease) forwards;"></p>
+            <button id="login-btn" type="submit" class="btn btn-primary btn-lg w-full mt-sm" style="position: relative; overflow: hidden;">
+              <span id="btn-text">Sign In as Resident</span>
+            </button>
           </form>
 
           <div class="divider"></div>
@@ -108,6 +262,21 @@
   <div id="toast-container"></div>
   <script src="../scripts/api.js"></script>
   <script>
+    // Password visibility toggle
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    if (togglePasswordBtn) {
+      togglePasswordBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePasswordBtn.textContent = isPassword ? '🙈' : '👁️';
+        togglePasswordBtn.style.transition = 'transform 0.2s var(--ease-spring)';
+        togglePasswordBtn.style.transform = 'scale(1.1)';
+        setTimeout(() => togglePasswordBtn.style.transform = 'scale(1)', 200);
+      });
+    }
+
     // If already logged in as resident, go directly
     if (Auth.isLoggedIn()) {
       const role = Auth.getRole();
@@ -118,10 +287,15 @@
     document.getElementById('login-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('login-btn');
+      const btnText = document.getElementById('btn-text');
       const errorEl = document.getElementById('login-error');
       errorEl.classList.add('hidden');
       btn.disabled = true;
-      btn.innerHTML = '<span class="spinner" style="width:16px;height:16px;border-width:2px;"></span> Signing in…';
+      
+      // Create loading animation
+      const originalText = btnText.textContent;
+      btnText.innerHTML = '<span class="spinner" style="width:14px;height:14px;border-width:2px; margin-right: 8px;"></span>Signing in…';
+      btn.style.opacity = '0.8';
 
       try {
         const data = await api.post('/auth/login/', {
@@ -134,16 +308,28 @@
           throw new Error('This login is for residents only. PG Owners please use the Owner Login page.');
         }
 
+        // Success animation
+        btnText.innerHTML = '✓ Signing in…';
+        btn.style.background = 'linear-gradient(135deg, var(--clr-success), #16a34a)';
+
         Auth.setTokens(data.access, data.refresh);
         Auth.setUser({ username: data.username, role: data.role });
         Toast.success(`Welcome back, ${data.username}!`);
-        setTimeout(() => { window.location.href = 'resident-dashboard.html'; }, 800);
+        
+        setTimeout(() => { window.location.href = 'resident-dashboard.html'; }, 600);
 
       } catch (err) {
+        // Error animation
         errorEl.textContent = err.message || 'Invalid credentials. Please try again.';
         errorEl.classList.remove('hidden');
+        
+        // Shake animation
+        btn.style.animation = 'none';
+        setTimeout(() => btn.style.animation = '', 10);
+        
         btn.disabled = false;
-        btn.textContent = 'Sign In as Resident';
+        btn.style.opacity = '1';
+        btnText.textContent = originalText;
       }
     });
   </script>
